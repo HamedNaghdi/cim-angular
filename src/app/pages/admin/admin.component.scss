@@ -8,7 +8,7 @@
   --font-sans: '';
 }
 
-:root .cimdata-rose {
+:root {
   --background: 0 0% 100%;
   --foreground: 240 10% 3.9%;
   --card: 0 0% 100%;
@@ -32,7 +32,7 @@
   color-scheme: light;
 }
 
-.dark .cimdata-rose {
+.dark {
   --background: 20 14.3% 4.1%;
   --foreground: 0 0% 95%;
   --card: 24 9.8% 10%;
