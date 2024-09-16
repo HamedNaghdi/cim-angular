@@ -1,11 +1,18 @@
 import { Routes } from '@angular/router';
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 
 export const routes: Routes = [
   {
     path: 'admin',
-    loadChildren: () => import('./pages/admin/admin.module').then((m) => m.AdminModule),
-    title: 'Dashboard | Cimdata',
-    data: { preload: true },
+    component: AdminLayoutComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./pages/admin/admin.module').then((m) => m.AdminModule),
+        title: 'Dashboard | Cimdata',
+        data: { preload: true },
+      }
+    ]
   },
   {
     path: '',
