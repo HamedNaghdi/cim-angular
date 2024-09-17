@@ -2,17 +2,22 @@ import { Routes } from '@angular/router';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 
 export const routes: Routes = [
+  // {
+  //   path: 'admin',
+  //   component: AdminLayoutComponent,
+  //   children: [
+  //     {
+  //       path: '',
+  //       loadChildren: () => import('./pages/admin/admin.module').then((m) => m.AdminModule),
+  //       title: 'Dashboard | Cimdata',
+  //       data: { preload: true },
+  //     }
+  //   ]
+  // },
   {
     path: 'admin',
-    component: AdminLayoutComponent,
-    children: [
-      {
-        path: '',
-        loadChildren: () => import('./pages/admin/admin.module').then((m) => m.AdminModule),
-        title: 'Dashboard | Cimdata',
-        data: { preload: true },
-      }
-    ]
+    loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule),
+    data: { preload: true }
   },
   {
     path: '',
