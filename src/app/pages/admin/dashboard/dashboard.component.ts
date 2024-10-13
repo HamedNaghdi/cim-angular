@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
+import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
+
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [],
+  imports: [HlmButtonDirective],
   templateUrl: './dashboard.component.html',
-  styleUrl: './dashboard.component.scss'
+  styleUrl: './dashboard.component.scss',
 })
-export class DashboardComponent {
-
-}
+export class DashboardComponent {}

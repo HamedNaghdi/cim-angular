@@ -1,0 +1,15 @@
+.nav-wrapper {
+  min-height: 100vh;
+  display: flex;
+
+  .nav {
+    flex: 1;
+
+    max-width: 200px;
+    padding: 32px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}

@@ -1,15 +1,14 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HlmButtonDirective } from '../../../../libs/ui/ui-button-helm/src/lib/hlm-button.directive';
+
+import { NavComponent } from './nav/nav.component';
 
 @Component({
   selector: 'app-admin-layout',
   standalone: true,
-  imports: [RouterOutlet, HlmButtonDirective],
+  imports: [RouterOutlet, NavComponent],
   templateUrl: './admin-layout.component.html',
   styleUrl: './admin-layout.component.scss',
   encapsulation: ViewEncapsulation.None,
 })
-export class AdminLayoutComponent {
-
-}
+export class AdminLayoutComponent {}
