@@ -1,15 +1,10 @@
-.nav-wrapper {
+.nav {
   min-height: 100vh;
+  height: 100%;
+  max-width: 263px;
+  padding: 32px;
+
   display: flex;
-
-  .nav {
-    flex: 1;
-
-    max-width: 263px;
-    padding: 32px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
+  flex-direction: column;
+  justify-content: space-between;
 }

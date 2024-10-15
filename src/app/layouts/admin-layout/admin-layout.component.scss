@@ -55,5 +55,27 @@
   color-scheme: dark;
 }
 
+:root {
+  --container-space-desktop: 36px;
+}
+
 .admin-layout {
+  display: flex;
+
+  .nav-wrapper {
+    border-right: hsl(var(--border)) solid 1px;
+  }
+
+  .body-wrapper {
+    width: 100%;
+
+    .header-wrapper {
+      border-bottom: hsl(var(--border)) solid 1px;
+      padding: 24px var(--container-space-desktop);
+    }
+
+    .main-wrapper {
+      padding: 24px var(--container-space-desktop) 0;
+    }
+  }
 }
