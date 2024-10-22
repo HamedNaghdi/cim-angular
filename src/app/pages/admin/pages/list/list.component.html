@@ -1,1 +1,7 @@
-<p>list works!</p>
+<h2>List of Pages</h2>
+<ul>
+  <li *ngFor="let page of pages">
+    <a [routerLink]="['/admin/pages/edit', page.id]">{{ page.title }}</a>
+  </li>
+</ul>
+<a routerLink="/admin/pages/create">Create a New Page</a>
