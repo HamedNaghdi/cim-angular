@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListComponent } from './list/list.component';
+import { EditComponent } from './edit/edit.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
     path: 'list',
     component: ListComponent,
     pathMatch: 'full',
+  },
+  {
+    path: 'edit/:id',
+    component: EditComponent
   }
 ];
 

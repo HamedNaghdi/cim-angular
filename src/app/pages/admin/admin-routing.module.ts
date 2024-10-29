@@ -17,10 +17,22 @@ const routes: Routes = [
         pathMatch: 'full',
         loadComponent: () =>
           import('./dashboard/dashboard.component').then((m) => m.DashboardComponent),
+        data: {
+          breadcrumbItem: {
+            key: 'dashboard',
+            label: 'Dashboard'
+          }
+        }
       },
       {
         path: 'pages',
         loadChildren: () => import('./pages/pages.module').then((m) => m.PagesModule),
+        data: {
+          breadcrumbItem: {
+            key: 'pages',
+            label: 'Pages'
+          }
+        }
       },
     ],
   },
@@ -30,4 +42,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class AdminRoutingModule {}
+export class AdminRoutingModule { }

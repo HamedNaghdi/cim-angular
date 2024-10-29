@@ -3,20 +3,21 @@
     <app-nav />
   </div>
   <div class="body-wrapper">
-    <div class="header-wrapper"></div>
+    <div class="header-wrapper"><app-header /></div>
     <div class="main-wrapper">
-      <button type="button" #showContent>Show content</button>
+      <!--
+        <button type="button" #showContent>Show content</button>
 
-      @defer (on hover; on interaction(showContent)) {
+        @defer (on hover; on interaction(showContent)) {
+        } @placeholder (minimum 500ms;) {
+        <p>Placeholder for content</p>
+        } @loading (minimum 1s; after 500ms) {
+        <p>Loading content...</p>
+        } @error {
+        <p>Failed to load content</p>
+        }
+      -->
       <router-outlet />
-      } @placeholder (minimum 500ms;) {
-      <p>Placeholder for content</p>
-      } @loading (minimum 1s; after 500ms) {
-      <p>Loading content...</p>
-      } @error {
-      <p>Failed to load content</p>
-      }
-
     </div>
   </div>
 </section>
