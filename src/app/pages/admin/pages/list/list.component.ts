@@ -11,22 +11,23 @@ import { ApiService } from '../../../../core/services/common/api/api.service';
   styleUrl: './list.component.scss',
   providers: [ApiService],
 })
-
 export class ListComponent implements OnInit {
+  number: number = 1;
+  size: number = 7;
+
   pages: any[] = [];
   errorMessage: string | null = null;
 
-  constructor(private apiService: ApiService) {
-  }
+  constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
-    this.loadPages()
+    this.loadPages();
   }
 
   loadPages(): void {
     let params = new HttpParams()
-      .set('pageNumber', 1)
-      .set('pageSize', 7)
+      .set('pageNumber', this.number)
+      .set('pageSize', this.size)
       .set('ascending', false);
 
     this.apiService.get<any[]>(`cms/pages/get`, params).subscribe({
@@ -37,7 +38,7 @@ export class ListComponent implements OnInit {
       error: (error: any) => {
         this.errorMessage = 'Failed to load pages';
         console.error('Error loading pages:', error);
-      }
-    })
+      },
+    });
   }
 }

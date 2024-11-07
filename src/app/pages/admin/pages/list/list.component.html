@@ -1,15 +1,33 @@
-<p>list works!</p>
+<div class="head2">
+  <div class="search-wrapper">
+    <div class="box-wrapper">
+      <div class="icon"><img src="images/icons/search.svg" alt="search" /></div>
+      <input type="search" name="" id="" placeholder="Seiten durchsuchen..." />
+    </div>
+    <div class="filter-wrapper">
+      <div class="icon"><img src="images/icons/filter.svg" alt="filter" /></div>
+      <div>Filtern</div>
+    </div>
+  </div>
+  <div class="actions">
+    <a class="btn-add" hlmBtn variant="destructive" routerLink="/admin/pages/create">
+      <span class="icon"><img src="images/icons/plus.svg" alt="plus" /></span>
+      <span>Neue Seite erstellen</span>
+    </a>
+  </div>
+</div>
 
-<div *ngIf="errorMessage">{{ errorMessage }}</div>
+<div class="pages-body">
+  <div *ngIf="errorMessage">{{ errorMessage }}</div>
 
-<div *ngIf="pages.length > 0; else noPages">
-  <h2>List of Pages</h2>
-  <ul>
-    <li *ngFor="let page of pages">
-      <a [routerLink]="['/admin/pages/edit', page.id]">{{ page.name.value }}</a>
-    </li>
-  </ul>
-  <a routerLink="/admin/pages/create">Create a New Page</a>
+  <div *ngIf="pages.length > 0; else noPages">
+    <h2>List of Pages</h2>
+    <ul>
+      <li *ngFor="let page of pages">
+        <a [routerLink]="['/admin/pages/edit', page.id]">{{ page.name.value }}</a>
+      </li>
+    </ul>
+  </div>
 </div>
 
 <ng-template #noPages>
