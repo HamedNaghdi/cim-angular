@@ -7,7 +7,11 @@ import { HeaderComponent } from './header/header.component';
 @Component({
   selector: 'app-admin-layout',
   standalone: true,
-  imports: [RouterOutlet, NavComponent, HeaderComponent],
+  imports: [
+    RouterOutlet,
+    NavComponent,
+    HeaderComponent
+  ],
   templateUrl: './admin-layout.component.html',
   styleUrls: [
     './admin-shadcn-tailwind.scss',
