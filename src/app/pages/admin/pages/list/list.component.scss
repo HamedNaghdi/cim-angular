@@ -53,4 +53,23 @@
 }
 
 .pages-body {
+  margin-top: var(--container-space-desktop);
+  margin-bottom: var(--container-space-desktop);
+
+  .pages-table{
+    border-radius: var(--radius-rounded-md);
+    border: 1px solid var(--border-border-input);
+    text-align: left;
+
+    th{
+      color: #64748B;
+      font-weight: 500;
+      padding: 8px;
+      border-bottom: 1px solid var(--border-border-border, #E4E4E7);
+    }
+
+    td{
+      padding: 8px;
+    }
+  }
 }

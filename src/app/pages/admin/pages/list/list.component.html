@@ -20,26 +20,60 @@
 <div class="pages-body">
   <div *ngIf="errorMessage">{{ errorMessage }}</div>
 
-  <div *ngIf="pages.length > 0; else noPages">
-<!--    <ul>-->
-<!--      <li *ngFor="let page of pages">-->
-<!--        <a [routerLink]="['/admin/pages/edit', page.id]">{{ page.name.value }}</a>-->
-<!--      </li>-->
-<!--    </ul>-->
-    <p-table [value]="pages"
-             styleClass="p-datatable-gridlines"
-             [tableStyle]="{'min-width': '50rem'}">
+  <div class="pages-table" *ngIf="pages.length > 0; else noPages">
+<!--    <div class="mb-3">-->
+<!--      <p-button-->
+<!--        type="button"-->
+<!--        icon="pi pi-chevron-left"-->
+<!--        (onClick)="prev()"-->
+<!--        [disabled]="isFirstPage()"-->
+<!--        styleClass="p-button-text" />-->
+<!--      <p-button-->
+<!--        type="button"-->
+<!--        icon="pi pi-refresh"-->
+<!--        (onClick)="reset()"-->
+<!--        styleClass="p-button-text" />-->
+<!--      <p-button-->
+<!--        type="button"-->
+<!--        icon="pi pi-chevron-right"-->
+<!--        (onClick)="next()"-->
+<!--        [disabled]="isLastPage()"-->
+<!--        styleClass="p-button-text" />-->
+<!--    </div>-->
+    <p-table
+      [value]="pages"
+      [paginator]="true"
+      [rows]=size
+      [totalRecords]="totalRecords"
+      [lazy]="true"
+      [first]="first"
+      [showCurrentPageReport]="true"
+      [rowsPerPageOptions]="[7, 10, 15, 25, 50, 100]"
+      [tableStyle]="{'min-width': '50rem'}"
+      currentPageReportTemplate="Showing {{first + 1}} to {{last}} of {{totalRecords}} entries"
+      (onPage)="pageChange($event)"
+      (onLazyLoad)="loadPagesLazy($event)"
+      styleClass="p-datatable-gridlines">
+
       <ng-template pTemplate="header">
         <tr>
-          <th>Id</th>
+          <th>Zuletzt geändert</th>
           <th>Name</th>
+          <th>Slug</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-page>
         <tr>
-          <td>{{page.id}}</td>
+          <td>{{page.created | date:'dd.MM.yyyy'}}</td>
           <td>{{page.name.value}}</td>
+          <td>{{formatSlug(page.slug.value)}}</td>
         </tr>
+      </ng-template>
+      <ng-template pTemplate="paginatorleft">
+        <p-button type="button" icon="pi pi-plus" styleClass="p-button-text" />
+      </ng-template>
+      <ng-template pTemplate="paginatorright">
+        <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text" />
       </ng-template>
     </p-table>
   </div>

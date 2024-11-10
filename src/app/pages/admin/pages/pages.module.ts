@@ -7,10 +7,11 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { ListComponent } from './list/list.component';
 import { EditComponent } from './edit/edit.component';
 import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [ListComponent, EditComponent],
-  imports: [HlmButtonDirective, TableModule, CommonModule, PagesRoutingModule],
-  exports: [HlmButtonDirective],
+  imports: [HlmButtonDirective, TableModule, ButtonModule, CommonModule, PagesRoutingModule],
+  exports: [HlmButtonDirective, TableModule, ButtonModule],
 })
 export class PagesModule {}
