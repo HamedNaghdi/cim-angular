@@ -24,6 +24,8 @@ export class AdminLayoutComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    this.router.events.subscribe((event) => console.log(event));
+    this.router.events.subscribe((event) => {
+      // console.log(event);
+    });
   }
 }

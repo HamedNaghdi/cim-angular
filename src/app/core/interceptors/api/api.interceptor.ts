@@ -12,7 +12,7 @@ export class ApiInterceptor implements HttpInterceptor {
 
     return next.handle(authReq).pipe(
       tap(event => {
-        console.log('Request:', req);
+        // console.log('Request:', req);
       }),
       catchError((error: HttpErrorResponse) => {
         if (error.status === 0) {

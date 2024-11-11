@@ -66,7 +66,7 @@
         <tr>
           <td>{{page.created | date:'dd.MM.yyyy'}}</td>
           <td>{{page.name.value}}</td>
-          <td>{{formatSlug(page.slug.value)}}</td>
+          <td><a [routerLink]="['/admin/pages/edit', page.id]">{{formatSlug(page.slug.value)}}</a></td>
         </tr>
       </ng-template>
       <ng-template pTemplate="paginatorleft">

@@ -39,7 +39,7 @@ export class ListComponent implements OnInit {
 
     this.apiService.get<any[]>(`cms/pages/get`, params).subscribe({
       next: (response: any) => {
-        // console.log(response);
+        console.log(response);
         this.isFirst = !response.data.hasPreviousPage;
         this.isLast = !response.data.hasNextPage;
 
@@ -70,7 +70,7 @@ export class ListComponent implements OnInit {
   reset(): void {}
 
   pageChange(event: any) {
-    console.log(`page change`, event);
+    // console.log(`page change`, event);
   }
 
   loadPagesLazy(event: any): void {
