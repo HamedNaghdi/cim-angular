@@ -60,6 +60,7 @@
           <th>Zuletzt geändert</th>
           <th>Name</th>
           <th>Slug</th>
+          <th>Status</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-page>
@@ -67,6 +68,15 @@
           <td>{{page.created | date:'dd.MM.yyyy'}}</td>
           <td>{{page.name.value}}</td>
           <td><a [routerLink]="['/admin/pages/edit', page.id]">{{formatSlug(page.slug.value)}}</a></td>
+          <td class="status">
+            <span *ngIf="page.status.id == 1;">
+              <img src="images/icons/status-draft.svg" alt="status" />
+            </span>
+            <span *ngIf="page.status.id == 2;">
+              <img src="images/icons/status-published.svg" alt="status" />
+            </span>
+            {{getStatusName(page.status)}}
+          </td>
         </tr>
       </ng-template>
       <ng-template pTemplate="paginatorleft">

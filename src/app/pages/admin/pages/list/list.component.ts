@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpParams } from '@angular/common/http';
+import { IPageStatus } from '../IPageStatus';
 
 import { ApiService } from '../../../../core/services/common/api/api.service';
 
@@ -84,5 +85,18 @@ export class ListComponent implements OnInit {
 
   formatSlug(slug: string): string {
     return slug === 'home' ? '/' : `/${slug}`;
+  }
+
+  getStatusName(status: IPageStatus): string {
+    let result = '';
+    switch (status.id) {
+      case 1:
+        result = 'Entwurf';
+        break;
+      case 2:
+        result = 'Veröffentlicht';
+        break;
+    }
+    return result;
   }
 }

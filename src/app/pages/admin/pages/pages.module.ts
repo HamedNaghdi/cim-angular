@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 
 import { HlmButtonDirective } from '@spartan-ng/ui-button-helm';
 
@@ -11,7 +11,14 @@ import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [ListComponent, EditComponent],
-  imports: [HlmButtonDirective, TableModule, ButtonModule, CommonModule, PagesRoutingModule],
+  imports: [
+    HlmButtonDirective,
+    TableModule,
+    ButtonModule,
+    CommonModule,
+    PagesRoutingModule,
+    NgOptimizedImage,
+  ],
   exports: [HlmButtonDirective, TableModule, ButtonModule],
 })
 export class PagesModule {}
