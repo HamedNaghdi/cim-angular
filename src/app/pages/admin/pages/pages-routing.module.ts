@@ -14,10 +14,10 @@ const routes: Routes = [
     component: ListComponent,
     pathMatch: 'full',
   },
-  {
-    path: 'edit/:id',
-    component: EditComponent
-  }
+  // {
+  //   path: 'edit/:id',
+  //   component: EditComponent
+  // }
 ];
 
 @NgModule({

@@ -1,3 +1,5 @@
+<app-edit></app-edit>
+
 <div class="head2">
   <div class="search-wrapper">
     <div class="box-wrapper">
@@ -21,25 +23,6 @@
   <div *ngIf="errorMessage">{{ errorMessage }}</div>
 
   <div class="pages-table" *ngIf="pages.length > 0; else noPages">
-<!--    <div class="mb-3">-->
-<!--      <p-button-->
-<!--        type="button"-->
-<!--        icon="pi pi-chevron-left"-->
-<!--        (onClick)="prev()"-->
-<!--        [disabled]="isFirstPage()"-->
-<!--        styleClass="p-button-text" />-->
-<!--      <p-button-->
-<!--        type="button"-->
-<!--        icon="pi pi-refresh"-->
-<!--        (onClick)="reset()"-->
-<!--        styleClass="p-button-text" />-->
-<!--      <p-button-->
-<!--        type="button"-->
-<!--        icon="pi pi-chevron-right"-->
-<!--        (onClick)="next()"-->
-<!--        [disabled]="isLastPage()"-->
-<!--        styleClass="p-button-text" />-->
-<!--    </div>-->
     <p-table
       [value]="pages"
       [paginator]="true"
@@ -61,6 +44,7 @@
           <th>Name</th>
           <th>Slug</th>
           <th>Status</th>
+          <th>Aktionen</th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-page>
@@ -76,6 +60,11 @@
               <img src="images/icons/status-published.svg" alt="status" />
             </span>
             {{getStatusName(page.status)}}
+          </td>
+          <td>
+            <button (click)="openModal()">
+              <img src="images/icons/pen.svg" alt="edit" />
+            </button>
           </td>
         </tr>
       </ng-template>

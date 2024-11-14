@@ -1,18 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, viewChild } from '@angular/core';
 import { HttpParams } from '@angular/common/http';
 import { IPageStatus } from '../IPageStatus';
+import { EditComponent } from '../edit/edit.component';
 
 import { ApiService } from '../../../../core/services/common/api/api.service';
 
 @Component({
   selector: 'app-list',
-  standalone: false,
-  // imports: [],
   templateUrl: './list.component.html',
   styleUrl: './list.component.scss',
-  providers: [ApiService],
 })
 export class ListComponent implements OnInit {
+  @ViewChild(EditComponent) editComponent!: EditComponent
+
   number: number = 1;
   size: number = 4;
   isFirst: boolean = true;
@@ -26,10 +26,16 @@ export class ListComponent implements OnInit {
   pages: any[] = [];
   errorMessage: string | null = null;
 
-  constructor(private apiService: ApiService) {}
+  constructor(
+    private apiService: ApiService
+  ) {}
 
   ngOnInit(): void {
     this.loadPages();
+  }
+
+  openModal(): void {
+    this.editComponent.open();
   }
 
   loadPages(): void {
@@ -75,8 +81,7 @@ export class ListComponent implements OnInit {
   }
 
   loadPagesLazy(event: any): void {
-    if (this.first == event.first)
-      return;
+    if (this.first == event.first) return;
 
     this.first = event.first;
     this.number = event.first / event.rows + 1;

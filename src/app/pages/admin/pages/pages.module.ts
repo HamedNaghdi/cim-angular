@@ -8,6 +8,7 @@ import { ListComponent } from './list/list.component';
 import { EditComponent } from './edit/edit.component';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
+import { ApiService } from '../../../core/services/common/api/api.service';
 
 @NgModule({
   declarations: [ListComponent, EditComponent],
@@ -19,6 +20,7 @@ import { ButtonModule } from 'primeng/button';
     PagesRoutingModule,
     NgOptimizedImage,
   ],
-  exports: [HlmButtonDirective, TableModule, ButtonModule],
+  exports: [HlmButtonDirective, TableModule, ButtonModule, EditComponent],
+  providers: [ApiService],
 })
 export class PagesModule {}
